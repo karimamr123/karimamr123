@@ -1,0 +1,25 @@
+public class DutchFlagAlgorithm {
+    public int[] dutchFlagAlgorithm(int[] inputArray, int size) {
+        int start = 0;
+        int p = 0;
+        int end = size - 1;
+        int temp;
+        while (p < end) {
+            if (inputArray[p] == 2) {
+                temp = inputArray[p];
+                inputArray[p] = inputArray[start];
+                inputArray[start] = temp;
+                start++;
+                p++;
+            } else if (inputArray[p] == 0) {
+                p++;
+            } else {
+                temp = inputArray[p];
+                inputArray[p] = inputArray[end];
+                inputArray[end] = temp;
+                end--;
+            }
+        }
+        return inputArray;
+    }
+}
