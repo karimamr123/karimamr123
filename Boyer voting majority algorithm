@@ -1,0 +1,40 @@
+class Main
+{
+    // Function to find the majority element present in a given array
+    public static int findMajorityElement(int[] nums) {
+    // `majority` stores the majority element (if present)
+    int majority = 0;
+
+    // initialize counter `count` with 0
+    int count = 0;
+
+    // iterate through each element `nums[j]` in the array
+    for (int num : nums) {
+        // if counter `count` becomes 0
+        if (count == 0) {
+            // set the current candidate to `nums[j]`
+            majority = num;
+        }
+
+        // otherwise, increment the counter if `nums[j]` is a current candidate
+        if (num == majority) {
+            count++;
+        }
+        // otherwise, decrement the counter if `nums[j]` is not the current candidate
+        else {
+            count--;
+        }
+    }
+
+    return majority;
+}
+
+ 
+    public static void main (String[] args)
+    {
+        // assumption: valid input (majority element is present)
+        int[] nums = { 1, 8, 7, 4, 1, 2, 2, 2, 2, 2, 2 };
+ 
+        System.out.println("The majority element is " + findMajorityElement(nums));
+    }
+}
