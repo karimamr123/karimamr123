@@ -1,0 +1,31 @@
+import java.util.Arrays;
+
+public class CountingSortExample {
+
+    public static void countsort(int[] arr, int k) {
+        int[] freq = new int[k + 1];
+
+        // Count occurrences of each integer in the input array
+        for (int i : arr) {
+            freq[i]++;
+        }
+
+        // Overwrite the input array with sorted order
+        int index = 0;
+        for (int i = 0; i < k + 1; i++) {
+            while (freq[i]-- > 0) {
+                arr[index++] = i;
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        // Example usage
+        int[] arr = {4, 2, 2, 8, 3, 3, 1};
+        int k = 8; // The maximum value in the array
+
+        System.out.println("Original Array: " + Arrays.toString(arr));
+        countsort(arr, k);
+        System.out.println("Sorted Array: " + Arrays.toString(arr));
+    }
+}
